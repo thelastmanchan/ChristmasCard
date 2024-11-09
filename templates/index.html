@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>게시글 목록</h1>
+        <div class="posts">
+            {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content[:200] }}...</p>
+                <small>작성일: {{ post.created_at.strftime('%Y-%m-%d') }}</small>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
