@@ -1,24 +1,32 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Blog</title>
+    <title>크리스마스 카드 갤러리</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="banner">🎄 Merry Christmas 2024 🎅</div>
+    <!-- 눈 내리는 효과를 위한 요소들 -->
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    
     <div class="container">
-        <h1>게시글 목록</h1>
-        <div class="posts">
-            {% for post in posts %}
-            <div class="post">
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content[:200] }}...</p>
-                <small>작성일: {{ post.created_at.strftime('%Y-%m-%d') }}</small>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</body>
-</html>
+        <h1>크리스마스 카드 갤러리</h1>
+        <a href="{{ url_for('write') }}" class="write-btn">새 카드 작성하기</a>
+        
+        <div class="card-grid">
+            {% for card in cards %}
+            <div class="card">
+                {% if card.image_path %}
+                <img src="{{ url_for('static', filename=card.image_path) }}" alt="카드 이미지">
+                %
