@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,21 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="banner">🎄 Merry Christmas 2024 🎅</div>
-    <!-- 눈 내리는 효과를 위한 요소들 -->
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    <div class="snowflake"></div>
-    
     <div class="container">
-        <h1>크리스마스 카드 갤러리</h1>
+        <h1>🎄 크리스마스 카드 갤러리 🎅</h1>
         <a href="{{ url_for('write') }}" class="write-btn">새 카드 작성하기</a>
         
         <div class="card-grid">
@@ -29,4 +17,15 @@
             <div class="card">
                 {% if card.image_path %}
                 <img src="{{ url_for('static', filename=card.image_path) }}" alt="카드 이미지">
-                %
+                {% endif %}
+                <div class="card-content">
+                    <h3>From: {{ card.author }}</h3>
+                    <p>{{ card.message }}</p>
+                    <small>{{ card.created_at.strftime('%Y-%m-%d') }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
