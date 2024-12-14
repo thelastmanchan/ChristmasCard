@@ -1,20 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
     const snowContainer = document.getElementById('snow');
  
     function createSnowflake() {
         const snowflake = document.createElement('div');
         snowflake.classList.add('snowflake');
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.left = Math.random() * window.innerWidth + 'px'; // 랜덤 x 위치
         snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // 애니메이션 시간 랜덤
         snowflake.style.opacity = Math.random(); // 불투명도 랜덤
         snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // 크기 랜덤
         snowflake.innerHTML = '❄'; // 눈송이 문자
-        return snowflake; // 생성된 눈송이 반환
+        
+        // 애니메이션 설정
+        snowflake.style.animationName = 'fall';
+        snowflake.style.animationTimingFunction = 'linear';
+        snowflake.style.position = 'absolute';
+        
+        // 눈송이를 DOM에 추가
+        snowContainer.appendChild(snowflake);
+ 
+        // 애니메이션이 끝난 후 눈송이를 제거
+        setTimeout(() => {
+            snowContainer.removeChild(snowflake);
+        }, parseFloat(snowflake.style.animationDuration) * 1000);
     }
  
-    for (let i = 0; i < 50; i++) { // 눈송이 개수
-        snowContainer.appendChild(createSnowflake());
-    }
+    // 눈송이 생성 반복
+    setInterval(createSnowflake, 200); // 매 200ms마다 새로운 눈송이 생성
  });
- 
+  
