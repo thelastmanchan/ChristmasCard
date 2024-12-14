@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>모든 카드</h2>
-    {% for card in cards %}
-        <div class="card">
-            <p>{{ card.message }}</p>
-        </div>
-    {% endfor %}
-    <a href="{{ url_for('card') }}">새 카드 만들기</a>
+<h2>모든 카드</h2>
+{% for card in cards %}
+<div class="card">
+   <p>{{ card.message }}</p>
+</div>
+{% endfor %}
+<a href="{{ url_for('card') }}">새 카드 만들기</a>
 {% endblock %}
