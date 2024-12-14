@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>새 카드 만들기</h2>
+    <form method="POST">
+        <textarea name="message" required></textarea>
+        <button type="submit">카드 만들기</button>
+    </form>
+{% endblock %}
