@@ -89,3 +89,16 @@ body {
        transform: translateY(100vh); /* 화면 아래로 떨어짐 */
    }
 }
+
+.create-card-button {
+    display: inline-block; /* 블록 요소로 설정 */
+    padding: 10px 20px; /* 내부 여백 */
+    background-color: #ff0000; /* 배경색 빨간색 */
+    color: #ffffff; /* 글자색 흰색 */
+    text-decoration: none; /* 밑줄 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    font-size: 16px; /* 폰트 크기 */
+    transition: background-color 0.3s, transform 0.3s; /* 애니메이션 효과 */
+    position: relative; /* z-index를 사용하기 위해 상대 위치 설정 */
+    z-index: 10; /* 다른 요소보다 위로 설정 */
+}
