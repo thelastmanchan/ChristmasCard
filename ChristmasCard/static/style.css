@@ -17,28 +17,6 @@ body {
     z-index: 1;
 }
 
-.snowman {
-    position: fixed;
-    left: 50px;
-    bottom: 20px;
-    width: 100px;
-    height: 150px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #fff, 0 -70px 0 30px #fff;
-}
-
-.snowman::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 25px;
-    width: 50px;
-    height: 50px;
-    background: #000;
-    border-radius: 50%;
-}
-
 .christmas-tree {
     position: fixed;
     right: 50px;
@@ -81,22 +59,23 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    pointer-events: none;
-    z-index: 1000;
+    pointer-events: none; /* 클릭 이벤트 무시 */
 }
 
 @keyframes snowfall {
     0% {
         transform: translateY(-10vh);
+        opacity: 1; /* 처음에 보이게 */
     }
+    
     100% {
         transform: translateY(100vh);
+        opacity: 0; /* 아래로 떨어지면서 사라짐 */
     }
 }
 
 .snowflake {
-    color: #fff;
-    position: absolute;
-    top: -10px;
-    animation: snowfall linear infinite;
+    color: #fff; /* 눈송이 색상 */
+    position: absolute; /* 절대 위치 */
+    top: -10px; /* 화면 위에서 시작 */
 }
