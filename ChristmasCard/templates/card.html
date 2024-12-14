@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}카드 목록{% endblock %}
+
 {% block content %}
-<a href="{{ url_for('card') }}" class="create-card-button">새 카드 만들기</a>
-    <form method="POST">
-        <textarea name="message" required></textarea>
-        <button type="submit">카드 만들기</button>
-    </form>
+<h2>모든 카드</h2>
+{% for card in cards %}
+<div class="card">
+   <p>{{ card.message }}</p> <!-- 카드 내용 -->
+</div>
+{% endfor %}
+<a href="{{ url_for('card') }}" class="create-card-button">새 카드 만들기</a> <!-- 버튼 -->
 {% endblock %}

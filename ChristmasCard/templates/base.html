@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>크리스마스 카드</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}크리스마스 카드{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- CSS 파일 연결 -->
 </head>
 <body>
     <div class="christmas-tree"></div>
@@ -12,11 +12,12 @@
     <div class="container">
         <header>
             <h1>크리스마스 카드 만들기</h1>
+            <a href="{{ url_for('card') }}" class="create-card-button">새 카드 만들기</a> <!-- 버튼 -->
         </header>
         <main>
-            {% block content %}{% endblock %}
+            {% block content %}{% endblock %} <!-- 페이지별 콘텐츠가 들어갈 부분 -->
         </main>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script> <!-- JavaScript 파일 연결 -->
 </body>
 </html>

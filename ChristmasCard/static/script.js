@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 애니메이션 설정
         snowflake.style.animationName = 'fall';
         snowflake.style.animationTimingFunction = 'linear';
-        snowflake.style.position = 'absolute';
         
         // 눈송이를 DOM에 추가
         snowContainer.appendChild(snowflake);

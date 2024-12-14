@@ -47,7 +47,6 @@ body {
 
 .snowflake {
     position: absolute;
-    top: -10px; /* 화면 위에서 시작 */
 }
 
 /* 카드 스타일 추가 */
@@ -68,13 +67,7 @@ body {
     transform: translateY(-5px); /* 호버 시 애니메이션 효과 */
 }
 
-/* 눈 내리는 애니메이션 추가 */
-@keyframes fall {
-   to {
-       transform: translateY(100vh); /* 화면 아래로 떨어짐 */
-   }
-}
-
+/* 버튼 스타일 추가 */
 .create-card-button {
     display: inline-block; /* 블록 요소로 설정 */
     padding: 10px 20px; /* 내부 여백 */
@@ -84,10 +77,15 @@ body {
     border-radius: 5px; /* 모서리 둥글게 */
     font-size: 16px; /* 폰트 크기 */
     transition: background-color 0.3s, transform 0.3s; /* 애니메이션 효과 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 }
 
 .create-card-button:hover {
     background-color: #28a745; /* 호버 시 초록색으로 변경 */
-    transform: translateY(-2px); /* 호버 시 약간 위로 올라감 */
+}
+
+/* 눈 내리는 애니메이션 추가 */
+@keyframes fall {
+   to {
+       transform: translateY(100vh); /* 화면 아래로 떨어짐 */
+   }
 }
