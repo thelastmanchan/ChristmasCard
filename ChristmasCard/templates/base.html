@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>크리스마스 카드 만들기</h1>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <div class="snowman"></div>
+    <div class="christmas-tree"></div>
+    <div id="snow"></div>
+    <div class="container">
+        <header>
+            <h1>크리스마스 카드 만들기</h1>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
