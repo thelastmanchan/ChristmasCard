@@ -39,10 +39,10 @@ body {
 
 #snow {
     position: fixed;
-    top: 0;
+    top: 0; /* 눈송이가 화면 위에서 시작하도록 설정 */
     left: 0;
     right: 0;
-    bottom: 0; /* 눈송이 효과 */
+    bottom: 0; /* 눈송이가 화면 전체에 걸쳐 떨어지도록 설정 */
 }
 
 .snowflake {
@@ -56,5 +56,21 @@ body {
     border-radius: 10px; /* 모서리 둥글게 */
     padding: 20px; /* 내부 여백 */
     margin-bottom: 20px; /* 아래쪽 여백 */
-    box-shadow: 0 4px 6px rgba
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    
+    width: 200px; /* 카드 너비 (정사각형) */
+    height: 200px; /* 카드 높이 (정사각형) */
+    
+    border: 2px solid #ff0000; /* 테두리 색상을 빨간색으로 설정 */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* 호버 시 애니메이션 효과 */
+}
+
+/* 눈 내리는 애니메이션 추가 */
+@keyframes fall {
+   to {
+       transform: translateY(100vh); /* 화면 아래로 떨어짐 */
+   }
 }

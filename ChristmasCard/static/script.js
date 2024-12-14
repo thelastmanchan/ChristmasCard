@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         snowflake.style.opacity = Math.random(); // 불투명도 랜덤
         snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // 크기 랜덤
         snowflake.innerHTML = '❄'; // 눈송이 문자
-        
+ 
         // 애니메이션 설정
         snowflake.style.animationName = 'fall';
         snowflake.style.animationTimingFunction = 'linear';
@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // 눈송이 생성 반복
     setInterval(createSnowflake, 200); // 매 200ms마다 새로운 눈송이 생성
  });
-  
+ 
