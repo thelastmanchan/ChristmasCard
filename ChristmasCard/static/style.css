@@ -102,3 +102,9 @@ body {
     position: relative; /* z-index를 사용하기 위해 상대 위치 설정 */
     z-index: 10; /* 다른 요소보다 위로 설정 */
 }
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
