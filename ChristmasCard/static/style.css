@@ -106,6 +106,7 @@ body {
     z-index: 10; /* 다른 요소보다 위로 설정 */
 }
 
+<<<<<<< HEAD
 .form-elements {
     position: relative;
     z-index: 30; /* snow와 container보다 높은 값 */
@@ -131,5 +132,10 @@ body {
     max-width: 100%;
     max-height: 100px;
     object-fit: cover;
+=======
+.card img {
+    max-width: 100%;
+    height: auto;
+>>>>>>> a4ef5d1080acc2867be57c6fd695d2c521c7ab8b
     margin-top: 10px;
 }

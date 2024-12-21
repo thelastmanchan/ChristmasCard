@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}새 카드 만들기{% endblock %}
+<<<<<<< HEAD
 
 {% block content %}
 <h2>새 크리스마스 카드 작성</h2>
@@ -17,4 +18,30 @@
         <button type="submit" class="btn btn-primary">카드 만들기</button>
     </form>
 </div>
+=======
+
+{% block content %}
+<h2>새 카드 만들기</h2>
+<form method="POST" enctype="multipart/form-data">
+    <textarea name="message" placeholder="카드 메시지를 입력하세요" required></textarea>
+    <input type="file" name="image" accept="image/*">
+    <button type="submit">카드 만들기</button>
+</form>
+{% endblock %}
+
+{% extends "base.html" %}
+
+{% block title %}카드 목록{% endblock %}
+
+{% block content %}
+<h2>모든 카드</h2>
+{% for card in cards %}
+<div class="card">
+   <p>{{ card.message }}</p>
+   {% if card.image %}
+   <img src="{{ url_for('static', filename='uploads/' + card.image) }}" alt="Card Image">
+   {% endif %}
+</div>
+{% endfor %}
+>>>>>>> a4ef5d1080acc2867be57c6fd695d2c521c7ab8b
 {% endblock %}
