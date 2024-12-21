@@ -27,3 +27,4 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(createSnowflake, 200); // 매 200ms마다 새로운 눈송이 생성
  });
  
+<script src="{{ url_for('static', filename='game.js') }}"></script>
