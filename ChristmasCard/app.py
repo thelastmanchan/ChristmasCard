@@ -1,30 +1,30 @@
 from flask import Flask, render_template, request, redirect, url_for
-from models import db, Card
-from flask_migrate import Migrate
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cards.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-db.init_app(app)
-migrate = Migrate(app, db)
+# 카드 저장을 위한 리스트 (실제로는 데이터베이스를 사용해야 합니다)
+cards = []
 
 @app.route('/')
 def index():
-    cards = Card.query.all()
     return render_template('index.html', cards=cards)
 
-@app.route('/card', methods=['GET', 'POST'])
-def card():
+@app.route('/create_card', methods=['GET', 'POST'])
+def create_card():
     if request.method == 'POST':
         message = request.form['message']
-        new_card = Card(message=message)
-        db.session.add(new_card)
-        db.session.commit()
+        image = request.files['image']
+        if image:
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        else:
+            filename = None
+        cards.append({'message': message, 'image': filename})
         return redirect(url_for('index'))
-    return render_template('card.html')
+    return render_template('create_card.html')
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)

@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
+{% block title %}크리스마스 카드 목록{% endblock %}
+
 {% block content %}
-<h2>모든 카드</h2>
-{% for card in cards %}
-<div class="card">
-   <p>{{ card.message }}</p>
+<h2>작성된 카드 목록</h2>
+<div class="card-container">
+    {% for card in cards %}
+    <div class="card">
+        <p>{{ card.message }}</p>
+        {% if card.image %}
+        <img src="{{ url_for('static', filename='uploads/' + card.image) }}" alt="Card Image">
+        {% endif %}
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-<a href="{{ url_for('card') }}">새 카드 만들기</a>
 {% endblock %}
