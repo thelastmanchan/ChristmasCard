@@ -24,7 +24,12 @@ def create_card():
             filename = None
         cards.append({'message': message, 'image': filename})
         return redirect(url_for('index'))
+    
     return render_template('create_card.html')
+
+@app.route('/minigame')
+def minigame():
+    return render_template('minigame.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
