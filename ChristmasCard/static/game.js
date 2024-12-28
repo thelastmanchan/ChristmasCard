@@ -23,11 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 콘솔에 로그 추가하여 이벤트 리스너 작동 확인
     minigameButton.addEventListener('click', function() {
         console.log('미니게임 버튼 클릭됨');
-        if (gameContainer.style.display === 'none' || gameContainer.style.display === '') {
-            gameContainer.style.display = 'block';
-            moveGift(); // 게임 시작 시 선물 위치 초기화
-        } else {
-            gameContainer.style.display = 'none';
-        }
-    });
+        window.open('{{ url_for("minigame") }}', 'MiniGame', 'width=400,height=300');
+    });    
 });

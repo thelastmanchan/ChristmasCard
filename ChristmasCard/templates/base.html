@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}크리스마스 카드{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- 메인 CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block extrahead %}
+    {% endblock %}
 </head>
 <body>
-    <div id="snow"></div> <!-- 눈 효과를 위한 컨테이너 -->
-    <div class="christmas-tree"></div>
     <div class="container">
         <header>
             <h1>크리스마스 카드 만들기</h1>
@@ -21,15 +21,9 @@
         </main>
     </div>
 
-    <!-- 미니게임 버튼 -->
-    <button id="minigame-button" class="minigame-button">미니게임하기</button>
+    <button id="minigame-button" class="minigame-button" aria-label="미니게임 시작하기">미니게임하기</button>
 
-    <!-- 스크립트 -->
-    <script src="{{ url_for('static', filename='snow.js') }}"></script> <!-- 눈 효과 스크립트 -->
-    <script>
-        document.getElementById('minigame-button').addEventListener('click', function() {
-            const gameWindow = window.open('{{ url_for("minigame") }}', 'MiniGame', 'width=600,height=400');
-        });
-    </script>
+
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>

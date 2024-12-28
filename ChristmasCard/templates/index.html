@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extrahead%}
+    <!-- main.js 스크립트 추가 -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
 {% block title %}크리스마스 카드 목록{% endblock %}
 
 {% block content %}
@@ -16,11 +20,10 @@
 </div>
 
 <!-- 미니게임 버튼 -->
-<button id="minigame-button" class="minigame-button">미니게임하기</button>
+<button id="minigame-button" class="minigame-button"
+        onclick="javascript:onMinigameClicked()">
+미니게임하기
+</button>
 
-<script>
-    document.getElementById('minigame-button').addEventListener('click', function() {
-        const gameWindow = window.open('{{ url_for("minigame") }}', 'MiniGame', 'width=600,height=400');
-    });
-</script>
+
 {% endblock %}

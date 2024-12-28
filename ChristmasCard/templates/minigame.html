@@ -1,18 +1,25 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>크리스마스 미니게임</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='minigame.css') }}"> <!-- 미니게임 CSS -->
+    <title>크리스마스 카드 목록</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="game-container">
-        <div id="gift"></div>
-        <div id="score">점수: <span id="score-value">0</span></div>
+    <div class="container">
+        <header>
+            <h1>크리스마스 카드 만들기</h1>
+            <a href="/create_card" class="create-card-button">새 카드 만들기</a>
+        </header>
+        <main>
+            <h2>작성된 카드 목록</h2>
+            <div class="card-container">
+            </div>
+        </main>
     </div>
 
-    <!-- 미니게임 스크립트 -->
-    <script src="{{ url_for('static', filename='minigame.js') }}"></script>
+    <button id="minigame-button" class="minigame-button" aria-label="미니게임 시작하기">미니게임하기</button>
+
+    <script src="/static/main.js" defer></script>
 </body>
 </html>
