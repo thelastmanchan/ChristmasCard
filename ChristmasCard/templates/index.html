@@ -8,49 +8,19 @@
     {% for card in cards %}
     <div class="card">
         <p>{{ card.message }}</p>
-        {% if car<!DOCTYPE html>
-         <html lang="ko">
-         <head>
-             <meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-             <title>크리스마스 카드 목록</title>
-             <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- 메인 CSS -->
-         </head>
-         <body>
-             <div id="snow"></div> <!-- 눈 효과를 위한 컨테이너 -->
-             <div class="container">
-                 <header>
-                     <h1>크리스마스 카드 목록</h1>
-                     <a href="{{ url_for('create_card') }}" class="create-card-button">새 카드 만들기</a>
-                 </header>
-                 <main>
-                     {% for card in cards %}
-                         <div class="card">
-                             <p>{{ card.message }}</p>
-                             {% if card.image %}
-                                 <img src="{{ url_for('static', filename='uploads/' + card.image) }}" alt="Card Image" width="200">
-                             {% endif %}
-                         </div>
-                     {% endfor %}
-                 </main>
-             </div>
-         
-             <!-- 미니게임 버튼 -->
-             <button id="minigame-button" class="minigame-button">미니게임하기</button>
-         
-             <!-- 스크립트 -->
-             <script src="{{ url_for('static', filename='snow.js') }}"></script> <!-- 눈 효과 스크립트 -->
-             <script>
-                 document.getElementById('minigame-button').addEventListener('click', function() {
-                     const gameWindow = window.open('{{ url_for("minigame") }}', 'MiniGame', 'width=600,height=400');
-                 });
-             </script>
-         </body>
-         </html>
-         d.image %}
+        {% if card.image %}
         <img src="{{ url_for('static', filename='uploads/' + card.image) }}" alt="Card Image">
         {% endif %}
     </div>
     {% endfor %}
 </div>
+
+<!-- 미니게임 버튼 -->
+<button id="minigame-button" class="minigame-button">미니게임하기</button>
+
+<script>
+    document.getElementById('minigame-button').addEventListener('click', function() {
+        const gameWindow = window.open('{{ url_for("minigame") }}', 'MiniGame', 'width=600,height=400');
+    });
+</script>
 {% endblock %}
